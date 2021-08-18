@@ -1,15 +1,15 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+import 'home_view.dart';
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Frases do dia!',
-        home: Container(color: Colors.white)
+      title: 'Frases do dia',
+      debugShowCheckedModeBanner: false,
+      home: HomeView(),
     );
   }
 }
