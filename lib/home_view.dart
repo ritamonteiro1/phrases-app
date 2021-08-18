@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 class HomeView extends StatefulWidget {
   @override
@@ -15,6 +16,14 @@ class _HomeViewState extends State<HomeView> {
   ];
 
   var _generatedPhrase = 'Clique abaixo para gerar uma frase!';
+
+  void _generatePhrase(){
+    var drawnNumber = Random().nextInt(_phraseList.length);
+    setState(() {
+      _generatedPhrase = _phraseList[drawnNumber];
+    });
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                   ),
                   color: Colors.green,
-                  onPressed: () {})
+                  onPressed: _generatePhrase)
             ],
           ),
         ),
