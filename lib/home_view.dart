@@ -7,6 +7,15 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
+  var _phraseList = [
+    'Frase 1',
+    'Frase 2',
+    'Frase 3',
+    'Frase 4'
+  ];
+
+  var _generatedPhrase = 'Clique abaixo para gerar uma frase!';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,39 +23,36 @@ class _HomeViewState extends State<HomeView> {
         title: Text('Frases do dia'),
         backgroundColor: Colors.green,
       ),
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          border: Border.all(width: 3, color: Colors.amber),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Image.asset('assets/images/logo.png'),
-            Text(
-              'Clique abaixo para gerar uma frase!',
-              textAlign: TextAlign.justify,
-              style: TextStyle(
-                fontSize: 17,
-                fontStyle: FontStyle.italic,
-                color: Colors.black,
-              ),
-            ),
-            RaisedButton(
-                child: Text(
-                  'Nova frase',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Image.asset('assets/images/logo.png'),
+              Text(
+                _generatedPhrase,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontSize: 25,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.black,
                 ),
-                color: Colors.green,
-                onPressed: () {})
-          ],
+              ),
+              RaisedButton(
+                  child: Text(
+                    'Nova frase',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  color: Colors.green,
+                  onPressed: () {})
+            ],
+          ),
         ),
       ),
     );
